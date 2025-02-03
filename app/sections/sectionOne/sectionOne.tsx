@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./sectionOne.module.scss";
+
 import CtaButton from "@/app/components/elements/ctaButton";
 import ArrowSVG from "@/app/components/elements/arrowSVG";
 
@@ -7,7 +8,7 @@ export default function SectionOne() {
 	const imgSizes = { width: 81, height: 56 };
 	return (
 		<section className={styles.sectionOne}>
-			<div className={`container`}>
+			<div className="container">
 				<div className={styles.content}>
 					<h1 className={styles.heading}>
 						<div className={`${styles["heading__phrase"]}`}>
@@ -25,7 +26,7 @@ export default function SectionOne() {
 						<div className={`${styles["heading__phrase"]}`}>
 							<div className={`${styles["heading__phrase__word"]} ${styles["heading__phrase__word--reverse"]}`}>
 								<Image src="/icon-heading-2.svg" alt="Database" {...imgSizes} />
-								<span>Hubspot</span>
+								<span>HubSpot</span>
 							</div>
 							<div className={`${styles["heading__phrase__word"]}`}>
 								<Image src="/icon-heading-3.svg" alt="Two arrows" {...imgSizes} />

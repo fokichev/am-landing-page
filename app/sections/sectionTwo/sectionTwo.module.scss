@@ -1,0 +1,84 @@
+@use "../../theme";
+
+.sectionTwo {
+	.content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: clamp(2.25rem, -3.75rem + 12.5vw, 7.5rem);
+		margin: 92px 0;
+
+		@media (min-width: theme.$mobile) {
+			height: 524px;
+		}
+
+		&__image {
+			background-image: url("/accordion-img-sm.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position-x: 53%;
+			background-position-y: 70%;
+			aspect-ratio: 4 / 3;
+			width: 100%;
+
+			border-radius: 4px;
+
+			&--tablet {
+				display: none;
+			}
+
+			@media (min-width: theme.$mobile) {
+				display: none;
+				background-image: url("/accordion-img-md.png");
+				background-size: cover;
+				width: 50%;
+				height: 100%;
+
+				&--tablet {
+					display: block;
+				}
+			}
+
+			@media (min-width: theme.$tablet) {
+				background-image: url("/accordion-img-lg.png");
+			}
+		}
+
+		&__column {
+			display: flex;
+			flex-direction: column;
+			gap: 45px;
+			height: 100%;
+
+			@media (min-width: theme.$mobile) {
+				justify-content: space-between;
+				gap: 0;
+				width: clamp(500px, 40%, 800px);
+			}
+
+			&__text {
+				display: flex;
+				flex-direction: column;
+				gap: 2rem;
+
+				h3 {
+					max-width: 400px;
+					font-weight: normal;
+					font-size: clamp(2.375rem, 1.95rem + 0.89vw, 2.75rem);
+					text-wrap: balance;
+					line-height: 100%;
+				}
+
+				p {
+					line-height: 150%;
+					text-wrap: balance;
+
+					@media (min-width: theme.$tablet) {
+						max-width: 414px;
+						text-wrap: unset;
+					}
+				}
+			}
+		}
+	}
+}

@@ -2,6 +2,7 @@
 
 .ctaButton {
 	display: flex;
+	align-self: flex-start;
 	align-items: center;
 	gap: 0.5rem;
 	padding: 0.5rem 1rem;
@@ -17,15 +18,17 @@
 		color: theme.$white;
 
 		&--outline {
+			background-color: transparent;
 			border-color: theme.$beige;
 		}
 	}
 
 	&--light {
-		background-color: theme.$beige;
+		background-color: theme.$white;
 		color: theme.$navy;
 
 		&--outline {
+			background-color: transparent;
 			border-color: theme.$navy;
 		}
 	}

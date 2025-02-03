@@ -1,6 +1,8 @@
 @use "../../theme";
 
 .sectionOne {
+	background-color: theme.$beige;
+	color: theme.$navy;
 	display: flex;
 	.content {
 		display: flex;
@@ -10,6 +12,7 @@
 		.heading {
 			font-weight: normal;
 			font-size: clamp(3.75rem, 0.32rem + 7.14vw, 6.75rem);
+			margin-top: 166px;
 			margin-bottom: 3.25rem;
 
 			$gap: clamp(0.625rem, 0.05rem + 1.19vw, 1.125rem);
@@ -81,6 +84,11 @@
 		.ctaButtons {
 			display: flex;
 			gap: 6px;
+			margin-bottom: 86px;
+
+			@media (max-width: theme.$small-mobile) {
+				flex-direction: column;
+			}
 		}
 	}
 }
