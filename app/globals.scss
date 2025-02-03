@@ -1,0 +1,41 @@
+@use "theme";
+
+body {
+	background-color: theme.$beige;
+	color: theme.$navy;
+	font-family: theme.$body-font;
+	font-size: 16px;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+h1,
+h2,
+h3 {
+	font-family: theme.$heading-font;
+	display: inline-block;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.container {
+	width: auto;
+	max-width: 108rem;
+	margin: 0 auto;
+	padding: 0 1rem;
+
+	@media (min-width: theme.$mobile) and (max-width: theme.$tablet) {
+		padding: 0 1.5rem;
+	}
+
+	@media (min-width: theme.$desktop) {
+		padding: 0 4rem;
+	}
+}

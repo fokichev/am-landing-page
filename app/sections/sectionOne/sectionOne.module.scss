@@ -1,0 +1,86 @@
+@use "../../theme";
+
+.sectionOne {
+	display: flex;
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.heading {
+			font-weight: normal;
+			font-size: clamp(3.75rem, 0.32rem + 7.14vw, 6.75rem);
+			margin-bottom: 3.25rem;
+
+			$gap: clamp(0.625rem, 0.05rem + 1.19vw, 1.125rem);
+
+			&__phrase {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				&__word {
+					display: flex;
+					align-items: center;
+					gap: $gap;
+
+					img {
+						width: clamp(45px, 0.24rem + 5.36vw, 81px);
+					}
+
+					&--mobile {
+						@media (min-width: theme.$mobile) {
+							display: none;
+						}
+					}
+
+					&--desktop {
+						display: none;
+						@media (min-width: theme.$mobile) {
+							display: flex;
+						}
+					}
+
+					&--reverse {
+						flex-direction: row-reverse;
+
+						@media (min-width: theme.$mobile) {
+							flex-direction: row;
+						}
+					}
+				}
+
+				@media (min-width: theme.$mobile) {
+					flex-direction: row;
+					gap: $gap;
+				}
+			}
+		}
+
+		h4 {
+			font-size: clamp(1.25rem, 0.96rem + 0.6vw, 1.5rem);
+			font-weight: 600;
+			line-height: 138%;
+			margin-bottom: 1rem;
+		}
+
+		p {
+			font-size: clamp(1rem, 0.71rem + 0.6vw, 1.25rem);
+			line-height: 150%;
+			text-wrap: balance;
+			text-align: center;
+			margin-bottom: 2rem;
+
+			max-width: 350px;
+
+			@media (min-width: theme.$mobile) {
+				max-width: 584px;
+			}
+		}
+
+		.ctaButtons {
+			display: flex;
+			gap: 6px;
+		}
+	}
+}

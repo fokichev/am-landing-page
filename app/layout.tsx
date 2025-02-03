@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Spline_Sans } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
+import Navbar from "./components/navigation/navbar";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -24,7 +25,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${geistSans.variable} ${splineSans.variable}`}>{children}</body>
+			<body className={`${geistSans.variable} ${splineSans.variable}`}>
+				<Navbar />
+				{children}
+			</body>
 		</html>
 	);
 }
