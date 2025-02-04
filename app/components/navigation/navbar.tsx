@@ -6,13 +6,15 @@ import CtaButton from "../elements/ctaButton";
 import ArrowSVG from "../elements/arrowSVG";
 import { useState } from "react";
 
-function BurgerSVG({ open, toggleOpen }: { open: boolean | null; toggleOpen: () => void }) {
-	const lineClass = `${styles.hamburger__line} ${open === null ? "" : open ? styles["hamburger__line--open"] : styles["hamburger__line--closed"]}`;
+function BurgerSVG({ open, toggleOpen }: { open?: boolean; toggleOpen: () => void }) {
+	const lineClass = `${styles.hamburger__line} ${open === undefined ? "" : open ? styles["hamburger__line--open"] : styles["hamburger__line--closed"]}`;
 	return (
-		<svg className={styles.hamburger} width="24" height="24" viewBox="0 0 24 24" fill="none" onClick={toggleOpen}>
-			<path className={lineClass} d="M4 8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-			<path className={lineClass} d="M4 16H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-		</svg>
+		<button onClick={toggleOpen} tabIndex={0}>
+			<svg className={styles.hamburger} width="24" height="24" viewBox="0 0 24 24" fill="none">
+				<path className={lineClass} d="M4 8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+				<path className={lineClass} d="M4 16H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+			</svg>
+		</button>
 	);
 }
 
@@ -45,19 +47,21 @@ export default function Navbar() {
 		{ name: "Resources", href: "#" },
 	];
 
-	const [open, setOpen] = useState<boolean | null>(null);
+	const [open, setOpen] = useState<boolean | undefined>();
 	const [openChevron, setOpenChevron] = useState<number | null>(null);
 	return (
 		<nav className={styles["navbar-container"]}>
 			<div className={styles.navbar}>
 				<div className={`${styles.navbar__content} container`}>
-					<Link href="/">
+					<Link href="/" aria-label="Back to home">
 						<Image src="/logo.svg" alt="Company logo" width={147} height={40} />
 					</Link>
 					<ul className={styles.navbar__list}>
 						{links.map((link, index) => (
 							<li key={index} className={styles.navbar__list__item}>
-								<Link href={link.href}>{link.name}</Link>
+								<Link href={link.href} aria-label={`Link to ${link.name} page`}>
+									{link.name}
+								</Link>
 							</li>
 						))}
 					</ul>
@@ -68,7 +72,7 @@ export default function Navbar() {
 						</CtaButton>
 					</div>
 
-					<div className={styles["navbar__hamburger-wrapper"]}>
+					<div className={styles["navbar__hamburger-wrapper"]} aria-expanded={open} aria-label={`${open ? "Hide" : "Show"} menu`}>
 						<BurgerSVG open={open} toggleOpen={() => setOpen(!open)} />
 					</div>
 				</div>
@@ -78,13 +82,15 @@ export default function Navbar() {
 					<ul className={styles.sidebar__content__list}>
 						{links.map((link, index) => (
 							<li key={index} className={styles.sidebar__content__list__item} onClick={() => setOpenChevron(openChevron === index ? null : index)}>
-								{link.name}
+								<Link href="#" aria-label={`Link to ${link.name} page`} tabIndex={open ? 0 : -1}>
+									{link.name}
+								</Link>
 								<ChevronSVG open={openChevron === index} />
 							</li>
 						))}
 					</ul>
 					<div className={styles.sidebar__content__cta}>
-						<CtaButton colour="light">
+						<CtaButton colour="light" tabIndex={open ? 0 : -1}>
 							<ArrowSVG />
 							Call to action
 						</CtaButton>

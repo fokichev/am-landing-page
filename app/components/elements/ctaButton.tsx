@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./ctaButton.module.scss";
 
 interface CtaButtonProps {
@@ -5,12 +6,17 @@ interface CtaButtonProps {
 	href?: string;
 	colour: "dark" | "light";
 	outline?: boolean;
+	tabIndex?: -1 | 0;
 }
 
-export default function CtaButton({ children, href = "/", colour, outline }: CtaButtonProps) {
+export default function CtaButton({ children, href = "/", colour, outline, tabIndex }: CtaButtonProps) {
 	return (
-		<a href={href} className={`${styles.ctaButton} ${styles[`ctaButton--${colour}`]} ${outline ? styles[`ctaButton--${colour}--outline`] : ""}`}>
+		<Link
+			href={href}
+			className={`${styles.ctaButton} ${styles[`ctaButton--${colour}`]} ${outline ? styles[`ctaButton--${colour}--outline`] : ""}`}
+			{...(tabIndex ? { tabIndex } : {})}
+		>
 			{children}
-		</a>
+		</Link>
 	);
 }

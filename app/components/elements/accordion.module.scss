@@ -11,13 +11,17 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+			width: 100%;
 			font-size: 1.125rem;
 			font-weight: 500;
 			line-height: 138%;
 			padding-bottom: 0.75rem;
-			margin-right: 4px;
-			cursor: pointer;
+			padding-right: 4px;
 			transition: opacity 0.3s ease;
+
+			&:focus-visible {
+				outline: white auto 1px;
+			}
 
 			&:hover {
 				opacity: 0.8;

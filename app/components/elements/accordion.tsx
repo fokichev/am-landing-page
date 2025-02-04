@@ -30,12 +30,12 @@ export default function Accordion({ items }: AccordionProps) {
 		<div aria-orientation="vertical" className={styles.accordion}>
 			{items.map((item, index) => (
 				<div className={styles["accordion__item"]} key={index}>
-					<div className={styles["accordion__item__trigger"]} onClick={() => toggleActive(index)}>
+					<button className={styles["accordion__item__trigger"]} onClick={() => toggleActive(index)} aria-expanded={active === index} type="button">
 						{item.title}
 						<div className={styles[`accordion__item__trigger__icon${active === index ? "--rotate" : ""}`]}>
 							<IconPlus />
 						</div>
-					</div>
+					</button>
 					<div className={styles[`accordion__item__content${active === index ? "--active" : ""}`]}>{item.content}</div>
 				</div>
 			))}
