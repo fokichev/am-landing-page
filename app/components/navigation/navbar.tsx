@@ -24,16 +24,16 @@ function ChevronSVG({ open }: { open: boolean }) {
 			<path
 				d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z"
 				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M16 10L12 14L8 10"
 				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 				className={`${styles.sidebar__content__list__item__chevron} ${open ? styles["sidebar__content__list__item__chevron--open"] : ""}`}
 			/>
 		</svg>
@@ -66,10 +66,7 @@ export default function Navbar() {
 						))}
 					</ul>
 					<div className={styles.navbar__cta}>
-						<CtaButton colour="dark">
-							<ArrowSVG />
-							Call to action
-						</CtaButton>
+						<CtaButton colour="dark" />
 					</div>
 
 					<div className={styles["navbar__hamburger-wrapper"]} aria-expanded={open} aria-label={`${open ? "Hide" : "Show"} menu`}>
@@ -90,10 +87,7 @@ export default function Navbar() {
 						))}
 					</ul>
 					<div className={styles.sidebar__content__cta}>
-						<CtaButton colour="light" tabIndex={open ? 0 : -1}>
-							<ArrowSVG />
-							Call to action
-						</CtaButton>
+						<CtaButton colour="light" tabIndex={open ? 0 : -1} />
 					</div>
 				</div>
 			</div>

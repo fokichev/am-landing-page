@@ -28,10 +28,7 @@ export default function SectionTwo() {
 						<div className={styles["content__column__text"]}>
 							<h3>Modern & versatile HubSpot theme</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-							<CtaButton colour="light">
-								<ArrowSVG />
-								Call to action
-							</CtaButton>
+							<CtaButton colour="light" />
 						</div>
 						<AccordionImage />
 						<Accordion items={accordionItems} />

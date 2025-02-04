@@ -38,14 +38,8 @@ export default function SectionOne() {
 					<h4>Subheading example text</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 					<div className={styles.ctaButtons}>
-						<CtaButton colour="light" outline>
-							<ArrowSVG />
-							Call to action
-						</CtaButton>
-						<CtaButton colour="dark">
-							<ArrowSVG />
-							Call to action
-						</CtaButton>
+						<CtaButton colour="light" outline />
+						<CtaButton colour="dark" />
 					</div>
 				</div>
 			</div>

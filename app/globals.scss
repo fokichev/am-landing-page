@@ -2,7 +2,7 @@
 
 body {
 	background-color: theme.$navy;
-	color: theme.$white;
+	color: white;
 	font-family: theme.$body-font;
 	font-size: 16px;
 }
@@ -14,7 +14,7 @@ body {
 
 	::selection {
 		background-color: #898989;
-		color: theme.$white;
+		color: white;
 	}
 }
 
