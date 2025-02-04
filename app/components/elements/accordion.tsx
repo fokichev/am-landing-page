@@ -35,7 +35,7 @@ export default function Accordion({ items }: AccordionProps) {
 	const [active, setActive] = useState<number | null>(null);
 	const toggleActive = (index: number) => setActive((prev) => (prev === index ? null : index));
 	return (
-		<div aria-orientation="vertical" className={styles.accordion}>
+		<div className={styles.accordion}>
 			{items.map((item, index) => (
 				<div className={styles["accordion__item"]} key={index}>
 					<button className={styles["accordion__item__trigger"]} onClick={() => toggleActive(index)} aria-expanded={active === index} type="button">

@@ -1,7 +1,5 @@
-import Image from "next/image";
 import styles from "./sectionTwo.module.scss";
 import CtaButton from "@/app/components/elements/ctaButton";
-import ArrowSVG from "@/app/components/elements/arrowSVG";
 import Accordion from "@/app/components/elements/accordion";
 
 function AccordionImage({ className }: { className?: string }) {

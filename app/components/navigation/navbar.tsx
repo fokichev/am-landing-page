@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./navbar.module.scss";
 import CtaButton from "../elements/ctaButton";
-import ArrowSVG from "../elements/arrowSVG";
 import { useState } from "react";
 
 function BurgerSVG({ open, toggleOpen }: { open?: boolean; toggleOpen: () => void }) {

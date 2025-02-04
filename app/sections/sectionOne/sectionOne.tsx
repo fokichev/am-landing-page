@@ -2,7 +2,6 @@ import Image from "next/image";
 import styles from "./sectionOne.module.scss";
 
 import CtaButton from "@/app/components/elements/ctaButton";
-import ArrowSVG from "@/app/components/elements/arrowSVG";
 
 export default function SectionOne() {
 	const imgSizes = { width: 81, height: 56 };
