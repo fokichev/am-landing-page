@@ -1,0 +1,218 @@
+@use "../../theme";
+
+.navbar-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+}
+
+.navbar {
+	background-color: theme.$beige;
+	color: theme.$navy;
+	padding: 1.25rem 0;
+
+	&__content {
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+
+		> * {
+			flex: 1;
+		}
+
+		ul {
+			display: none;
+			gap: 2.25rem;
+			list-style: none;
+			align-self: center;
+			justify-content: center;
+
+			@media (min-width: theme.$tablet) {
+				display: flex;
+			}
+
+			a {
+				font-weight: 500;
+			}
+		}
+	}
+
+	&__cta {
+		display: none;
+		justify-content: flex-end;
+		align-items: center;
+
+		@media (min-width: theme.$tablet) {
+			display: flex;
+		}
+	}
+
+	&__hamburger-wrapper {
+		display: flex;
+		cursor: pointer;
+		justify-content: end;
+
+		@media (min-width: theme.$tablet) {
+			display: none;
+		}
+
+		.hamburger {
+			&__line {
+				transition: all 0.3s linear;
+				transform-box: fill-box;
+				transform-origin: center;
+
+				&--open {
+					transition: all 0.3s linear;
+				}
+			}
+
+			&__line--open:nth-child(1) {
+				animation: moveAndRotateTop 0.5s forwards;
+			}
+
+			&__line--closed:nth-child(1) {
+				animation: reverseMoveAndRotateTop 0.5s forwards;
+			}
+
+			&__line--open:nth-child(2) {
+				animation: moveAndRotateBottom 0.5s forwards;
+			}
+
+			&__line--closed:nth-child(2) {
+				animation: reverseMoveAndRotateBottom 0.5s forwards;
+			}
+		}
+	}
+}
+
+.sidebar {
+	overflow: hidden;
+	width: 0%;
+	height: 0;
+	display: flex;
+	flex-direction: column;
+	background-color: transparent;
+	opacity: 0;
+	filter: blur(5px);
+	transition:
+		background-color 0.3s ease,
+		opacity 0.3s ease,
+		filter 0.3s ease,
+		height 1s ease;
+
+	&--open {
+		width: 100%;
+		height: 100vh;
+		background-color: rgba(23, 26, 30, 0.6);
+		opacity: 1;
+		filter: blur(0px);
+		transition:
+			background-color 0.3s ease,
+			opacity 0.3s ease,
+			filter 0.3s ease;
+	}
+
+	&__content {
+		background-color: theme.$beige;
+		color: theme.$navy;
+		margin-top: 1rem;
+		border-radius: 4px;
+		max-width: 300px;
+		width: 100%;
+		align-self: end;
+
+		&__list {
+			list-style: none;
+			padding: 42px 0 36px 0;
+
+			&__item {
+				display: flex;
+				justify-content: space-between;
+				border-bottom: 1px solid #d6d2cc;
+				padding: 21px 0;
+				margin: 0 1rem;
+				font-weight: 500;
+				cursor: pointer;
+
+				&:last-child {
+					border-bottom: none;
+				}
+
+				&__chevron {
+					transform-box: fill-box;
+					transform-origin: center;
+					transition: transform 0.3s ease;
+					transform: scaleY(1);
+
+					&--open {
+						transition: transform 0.3s ease;
+						transform: scaleY(-1);
+					}
+				}
+			}
+		}
+
+		&__cta {
+			background-color: theme.$navy;
+			display: flex;
+			justify-content: center;
+			padding: 24px 0;
+			border-radius: 0 0 4px 4px;
+
+			a {
+				background-color: theme.$beige;
+			}
+		}
+	}
+}
+
+@keyframes moveAndRotateTop {
+	0% {
+		transform: translateY(0) rotate(0);
+	}
+	50% {
+		transform: translateY(4px) rotate(0);
+	}
+	100% {
+		transform: translateY(4px) rotate(45deg);
+	}
+}
+
+@keyframes reverseMoveAndRotateTop {
+	0% {
+		transform: translateY(4px) rotate(45deg);
+	}
+	50% {
+		transform: translateY(4px) rotate(0);
+	}
+	100% {
+		transform: translateY(0) rotate(0);
+	}
+}
+
+@keyframes moveAndRotateBottom {
+	0% {
+		transform: translateY(0) rotate(0);
+	}
+	50% {
+		transform: translateY(-4px) rotate(0);
+	}
+	100% {
+		transform: translateY(-4px) rotate(-45deg);
+	}
+}
+
+@keyframes reverseMoveAndRotateBottom {
+	0% {
+		transform: translateY(-4px) rotate(-45deg);
+	}
+	50% {
+		transform: translateY(-4px) rotate(0);
+	}
+	100% {
+		transform: translateY(0) rotate(0);
+	}
+}
