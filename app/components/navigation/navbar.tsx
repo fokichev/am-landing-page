@@ -8,7 +8,7 @@ import { useState } from "react";
 function BurgerSVG({ open, toggleOpen }: { open?: boolean; toggleOpen: () => void }) {
 	const lineClass = `${styles.hamburger__line} ${open === undefined ? "" : open ? styles["hamburger__line--open"] : styles["hamburger__line--closed"]}`;
 	return (
-		<button onClick={toggleOpen} tabIndex={0}>
+		<button onClick={toggleOpen} tabIndex={0} aria-expanded={open} aria-label={`${open ? "Hide" : "Show"} menu`}>
 			<svg className={styles.hamburger} width="24" height="24" viewBox="0 0 24 24" fill="none">
 				<path className={lineClass} d="M4 8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
 				<path className={lineClass} d="M4 16H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -68,7 +68,7 @@ export default function Navbar() {
 						<CtaButton colour="dark" />
 					</div>
 
-					<div className={styles["navbar__hamburger-wrapper"]} aria-expanded={open} aria-label={`${open ? "Hide" : "Show"} menu`}>
+					<div className={styles["navbar__hamburger-wrapper"]}>
 						<BurgerSVG open={open} toggleOpen={() => setOpen(!open)} />
 					</div>
 				</div>
