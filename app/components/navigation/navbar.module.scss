@@ -35,6 +35,12 @@
 
 			a {
 				font-weight: 500;
+				opacity: 1;
+				transition: opacity 0.3s ease;
+
+				&:hover {
+					opacity: 0.8;
+				}
 			}
 		}
 	}

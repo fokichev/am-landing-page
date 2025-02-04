@@ -30,25 +30,27 @@
 			&__icon {
 				display: flex;
 				align-items: center;
-				transform: rotate(0deg);
-				transform-origin: center;
-				transition: transform 0.3s ease;
 
-				&--rotate {
-					transform: rotate(45deg);
+				&__plus {
+					transform: rotate(0deg);
+					transform-box: fill-box;
+					transform-origin: center;
 					transition: transform 0.3s ease;
+
+					&--rotate {
+						transform: rotate(45deg);
+						transition: transform 0.3s ease;
+					}
 				}
 			}
 		}
-
-		$transition: height 0.3s ease;
 
 		&__content {
 			height: 0px;
 			transition: height 0.3s ease;
 
 			&--active {
-				height: 50px;
+				height: 64px;
 				transition: height 0.3s ease;
 			}
 		}
